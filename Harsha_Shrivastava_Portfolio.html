@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsha Shrivastava — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16261C;
+    --ink-soft:#3E4F42;
+    --paper:#FFFFFF;
+    --paper-alt:#F4F6F1;
+    --gold:#B8862E;
+    --gold-deep:#8F6A21;
+    --sage:#5C7A5E;
+    --sage-light:#DCE6D8;
+    --line:#D8DED2;
+    --max:1100px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--sage); font-weight:500;
+  }
+  .brand strong{color:var(--ink); font-weight:500;}
+  .nav-links{display:flex; gap:26px; list-style:none; margin:0; padding:0; font-size:14.5px;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{color:var(--ink); border-color:var(--gold);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:96px 0 72px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(600px 300px at 88% -10%, rgba(184,134,46,0.09), transparent 70%),
+      radial-gradient(500px 260px at 5% 110%, rgba(92,122,94,0.10), transparent 70%);
+  }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-deep);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .kicker .stem{width:34px; height:1px; background:var(--gold-deep); display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem);
+    font-weight:500;
+    max-width:16ch;
+    line-height:1.04;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--sage); font-weight:500;
+  }
+  .hero-sub{
+    max-width:56ch; font-size:1.08rem; color:var(--ink-soft);
+    margin-top:26px;
+  }
+  .hero-meta{
+    margin-top:38px; display:flex; gap:28px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);
+  }
+  .hero-meta a{text-decoration:none; border-bottom:1px dotted var(--sage); padding-bottom:1px;}
+  .hero-meta a:hover{color:var(--gold-deep); border-color:var(--gold-deep);}
+  .hero-meta span{display:inline-flex; align-items:center; gap:7px;}
+
+  /* ---------- section shell ---------- */
+  section{padding:76px 0;}
+  .section-alt{background:var(--paper-alt);}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--sage); margin-bottom:10px; display:block;
+  }
+  .section-head{margin-bottom:44px; max-width:64ch;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem); font-weight:500;}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- about / education ---------- */
+  .about-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start;}
+  .about-grid p{color:var(--ink-soft); margin:0 0 16px;}
+  .edu-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line);}
+  .edu-item{
+    padding:16px 0; border-bottom:1px solid var(--line);
+    display:grid; grid-template-columns:88px 1fr auto; gap:14px; align-items:baseline;
+  }
+  .edu-year{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--gold-deep);}
+  .edu-name{font-weight:600; font-size:15px;}
+  .edu-school{color:var(--ink-soft); font-size:13.5px; margin-top:2px;}
+  .edu-score{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--sage); white-space:nowrap;}
+
+  /* ---------- skills ---------- */
+  .skill-cols{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  .skill-block h3{font-size:1rem; font-weight:600; font-family:'Inter',sans-serif; margin-bottom:16px; color:var(--ink);}
+  .tag-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .tag{
+    font-size:13px; padding:7px 13px; border:1px solid var(--sage-light);
+    border-radius:999px; color:var(--ink-soft); background:var(--paper);
+  }
+  .section-alt .tag{background:var(--paper-alt);}
+  .tag.strong{border-color:var(--gold); color:var(--gold-deep); font-weight:500;}
+
+  /* ---------- experience ---------- */
+  .exp-card{
+    border:1px solid var(--line); border-radius:6px; padding:30px 32px;
+    background:var(--paper); display:grid; grid-template-columns:1fr auto; gap:20px;
+  }
+  .exp-role{font-size:1.2rem; font-weight:500; font-family:'Fraunces',serif;}
+  .exp-org{color:var(--gold-deep); font-size:14px; margin-top:4px; font-weight:500;}
+  .exp-date{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); text-align:right; white-space:nowrap;}
+  .exp-list{margin:18px 0 0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
+  .exp-list li{margin-bottom:8px;}
+
+  /* ---------- specimen cards (projects) ---------- */
+  .specimen-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .specimen{
+    position:relative;
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:26px 26px 24px;
+    border-radius:2px;
+    transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .specimen:hover{
+    border-color:var(--gold);
+    box-shadow:0 10px 26px -18px rgba(22,38,28,0.35);
+    transform:translateY(-2px);
+  }
+  .specimen::before{
+    content:"";
+    position:absolute; top:14px; right:14px;
+    width:10px; height:10px;
+    border:1px solid var(--sage);
+    border-radius:50%;
+  }
+  .specimen-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    border-bottom:1px dashed var(--line); padding-bottom:14px; margin-bottom:16px;
+  }
+  .specimen-code{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:.05em;
+    color:var(--gold-deep); text-transform:uppercase;
+  }
+  .specimen-cat{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--sage);
+    text-transform:uppercase; letter-spacing:.05em; text-align:right;
+  }
+  .specimen h3{font-size:1.2rem; font-weight:500; line-height:1.25; margin-bottom:10px;}
+  .specimen p{color:var(--ink-soft); font-size:14.5px; margin:0 0 16px;}
+  .specimen-skills{display:flex; flex-wrap:wrap; gap:7px;}
+  .specimen-skills span{
+    font-size:11.5px; padding:4px 10px; background:var(--paper-alt);
+    border-radius:3px; color:var(--ink-soft); border:1px solid var(--line);
+  }
+  .specimen-leaf{
+    position:absolute; bottom:16px; right:16px; opacity:.5;
+  }
+
+  /* ---------- workshops ---------- */
+  .workshop-list{list-style:none; margin:0; padding:0; display:grid; gap:0;}
+  .workshop-item{
+    display:grid; grid-template-columns:22px 1fr; gap:14px;
+    padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px; color:var(--ink-soft);
+  }
+  .workshop-item strong{color:var(--ink); font-weight:600;}
+  .workshop-mark{color:var(--gold); font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- footer / contact ---------- */
+  .contact{
+    border-top:1px solid var(--line);
+    padding:76px 0 48px;
+    background:var(--ink);
+    color:#EFEFEA;
+  }
+  .contact h2{color:#fff; font-size:clamp(1.9rem,4vw,2.7rem); font-weight:500; max-width:16ch;}
+  .contact p{color:#C7D0C4; max-width:52ch; margin-top:16px; font-size:1rem;}
+  .contact-links{margin-top:34px; display:flex; gap:34px; flex-wrap:wrap;}
+  .contact-links a{
+    text-decoration:none; color:#EFEFEA; font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px; border-bottom:1px solid rgba(239,239,234,0.35); padding-bottom:3px;
+  }
+  .contact-links a:hover{border-color:var(--gold);}
+  .fine-print{
+    margin-top:56px; padding-top:22px; border-top:1px solid rgba(239,239,234,0.15);
+    font-size:12px; color:#8FA089; font-family:'IBM Plex Mono', monospace;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width: 820px){
+    .about-grid, .skill-cols, .specimen-grid{grid-template-columns:1fr;}
+    .exp-card{grid-template-columns:1fr;}
+    .exp-date{text-align:left;}
+    .nav-links{gap:16px; font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><strong>Harsha Shrivastava</strong> · Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="stem"></span>MBA Candidate, Delhi School of Management (DTU) · B.Sc. Botany (Hons.), University of Delhi</div>
+    <h1 class="reveal">Grounded in science, <em>growing</em> into strategy.</h1>
+    <p class="hero-sub reveal">I'm Harsha Shrivastava — a botany graduate now pursuing my MBA, working at the intersection of scientific research and business strategy. My work ranges from PRISMA systematic reviews and lab experiments to go-to-market plans and client-facing business decks.</p>
+    <div class="hero-meta reveal">
+      <span>📞 +91-9016349172</span>
+      <span>✉️ <a href="mailto:harshashrivastava75@gmail.com">harshashrivastava75@gmail.com</a></span>
+      <span>🔗 <a href="https://www.linkedin.com/in/harsha-shrivastava-18571741b" target="_blank" rel="noopener">linkedin.com/in/harsha-shrivastava</a></span>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <h2 style="font-size:1.6rem; font-weight:500; margin-bottom:18px;">A researcher's rigor, applied to business problems</h2>
+        <p>I began my academic path in botany, where I learned to build an argument from evidence — searching literature systematically, running controlled experiments, and writing up findings with precision. That training now shapes how I approach business: I treat a go-to-market plan or a client deck with the same discipline I'd bring to a systematic review.</p>
+        <p>Alongside my MBA, I spent a year and a half as a Marketing Intern at Universal Marketing, where I moved from research and writing into client-facing communication — managing social promotion, supporting client relations, and designing company profiles and presentations.</p>
+        <p>This portfolio collects the projects, reports, and presentations that trace that path — from moong bean germination trials to a chai brand's go-to-market strategy.</p>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Education</span>
+        <ul class="edu-list">
+          <li class="edu-item">
+            <span class="edu-year">2026–28</span>
+            <span>
+              <div class="edu-name">MBA (Pursuing)</div>
+              <div class="edu-school">Delhi School of Management, DTU</div>
+            </span>
+            <span class="edu-score">In progress</span>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">2023–26</span>
+            <span>
+              <div class="edu-name">B.Sc. Botany (Hons.)</div>
+              <div class="edu-school">Acharya Narendra Dev College, University of Delhi</div>
+            </span>
+            <span class="edu-score">7.5 CGPA</span>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">2021–22</span>
+            <span>
+              <div class="edu-name">12th Class</div>
+              <div class="edu-school">Hiramani Higher Secondary School, GSEB</div>
+            </span>
+            <span class="edu-score">66.28%</span>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">2019–20</span>
+            <span>
+              <div class="edu-name">10th Class</div>
+              <div class="edu-school">Calorx Public School, CBSE</div>
+            </span>
+            <span class="edu-score">87.40%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Skills</span>
+      <h2>Tools I use, capabilities I bring</h2>
+    </div>
+    <div class="skill-cols">
+      <div class="skill-block reveal">
+        <h3>Technical &amp; Tools</h3>
+        <div class="tag-row">
+          <span class="tag strong">Microsoft PowerPoint</span>
+          <span class="tag strong">Microsoft Excel</span>
+          <span class="tag">Microsoft Word</span>
+          <span class="tag">Canva Design</span>
+          <span class="tag">AI Tools &amp; ChatGPT</span>
+          <span class="tag">Data Presentation &amp; Basic Analysis</span>
+        </div>
+      </div>
+      <div class="skill-block reveal">
+        <h3>Research &amp; Strategy</h3>
+        <div class="tag-row">
+          <span class="tag strong">PRISMA Methodology</span>
+          <span class="tag">Literature Review</span>
+          <span class="tag">Go-to-Market Strategy</span>
+          <span class="tag">Evidence Synthesis</span>
+          <span class="tag">Analytical Writing</span>
+        </div>
+      </div>
+      <div class="skill-block reveal" style="margin-top:36px;">
+        <h3>Soft Skills</h3>
+        <div class="tag-row">
+          <span class="tag">Leadership</span>
+          <span class="tag">Teamwork &amp; Collaboration</span>
+          <span class="tag">Communication</span>
+          <span class="tag">Creative Writing</span>
+        </div>
+      </div>
+      <div class="skill-block reveal" style="margin-top:36px;">
+        <h3>Certifications</h3>
+        <div class="tag-row">
+          <span class="tag strong">AI Tools &amp; ChatGPT Workshop — Be10x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2>Where I've applied it</h2>
+    </div>
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-role">Marketing Intern</div>
+        <div class="exp-org">Universal Marketing, New Delhi</div>
+        <ul class="exp-list">
+          <li>Managed social media promotion and client relations, supporting brand visibility and maintaining effective client communication for a B2B IT solutions business.</li>
+          <li>Designed and presented company profiles, reports, and PowerPoint presentations — including the firm's client-facing profile deck — contributing to professional business communication.</li>
+        </ul>
+      </div>
+      <div class="exp-date">Aug 2024 – Jan 2026<br>(1 yr 6 mo)</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected Work</span>
+      <h2>A field collection of projects</h2>
+      <p>Presented like specimen sheets — each project labelled, catalogued, and mounted with what it demonstrates.</p>
+    </div>
+
+    <div class="specimen-grid">
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 01</span>
+          <span class="specimen-cat">Business Strategy</span>
+        </div>
+        <h3>ProChai — Go-to-Market Strategy</h3>
+        <p>End-to-end GTM plan for ProChai, a protein-fortified instant chai premix positioned for hostel and PG students in Delhi-NCR. Covers customer insight, positioning, a four-channel distribution plan (canteen tie-ups, quick commerce, content, campus launch), and a Week-4 KPI framework.</p>
+        <div class="specimen-skills">
+          <span>Market segmentation</span><span>Positioning</span><span>Channel strategy</span><span>KPI design</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 02</span>
+          <span class="specimen-cat">Academic Research</span>
+        </div>
+        <h3>Plant Microbiome &amp; Root–Bacteria Interactions</h3>
+        <p>Co-authored a PRISMA 2020 systematic review of 12 peer-reviewed studies (2022–2025), screening 48 initial records through identification, screening, and eligibility phases to synthesize evidence on nitrogen fixation, induced systemic resistance, and microbiome engineering.</p>
+        <div class="specimen-skills">
+          <span>Systematic review</span><span>PRISMA methodology</span><span>Evidence synthesis</span><span>Scientific writing</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 03</span>
+          <span class="specimen-cat">Dissertation · Sustainability</span>
+        </div>
+        <h3>Circular Economy for Natural Resource Management</h3>
+        <p>17-chapter dissertation applying circular economy frameworks — ReSOLVE, the 9R hierarchy, and the Butterfly Diagram — to botanical resource management, drawing on global case studies from China's bamboo economy to Sikkim's organic mission.</p>
+        <div class="specimen-skills">
+          <span>Long-form research</span><span>Framework application</span><span>Case study analysis</span><span>Policy recommendations</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 04</span>
+          <span class="specimen-cat">Group Study · OB</span>
+        </div>
+        <h3>MS Dhoni: The Master of Calm Leadership</h3>
+        <p>Group leadership-development report mapping MS Dhoni's captaincy — emotional intelligence, decision-making, accountability — onto a five-step framework for building leadership culture inside organizations.</p>
+        <div class="specimen-skills">
+          <span>Case-based analysis</span><span>Framework design</span><span>Organizational behaviour</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 05</span>
+          <span class="specimen-cat">Applied Research</span>
+        </div>
+        <h3>Biofertilizer &amp; Pesticide Usage in Indian Agriculture</h3>
+        <p>17-slide data-driven presentation analyzing the chemical composition and mechanisms of action of major biofertilizers and pesticides, with a comparative state-wise breakdown across Maharashtra, Punjab, UP, Karnataka, and Tamil Nadu.</p>
+        <div class="specimen-skills">
+          <span>Data presentation</span><span>Comparative analysis</span><span>Chemistry-to-agronomy translation</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 06</span>
+          <span class="specimen-cat">Lab Research</span>
+        </div>
+        <h3>Germination in Moong — Plant Physiology Study</h3>
+        <p>Designed and ran a controlled five-day experiment comparing moong bean germination under sunlight versus darkness, tracking root count, root/shoot length, and fresh/dry weight — recorded and charted in Excel.</p>
+        <div class="specimen-skills">
+          <span>Experimental design</span><span>Quantitative recording</span><span>Excel analysis</span>
+        </div>
+      </div>
+
+      <div class="specimen reveal" style="grid-column: span 1;">
+        <div class="specimen-top">
+          <span class="specimen-code">Specimen No. 07</span>
+          <span class="specimen-cat">Internship Deliverable</span>
+        </div>
+        <h3>Universal Marketing — Company Profile Deck</h3>
+        <p>Designed and presented Universal Marketing's B2B company profile — partner brand portfolio (HP, Dell, Lenovo, Samsung, LG, Apple, Canon), team credentials, and value proposition — used in real client conversations during the internship.</p>
+        <div class="specimen-skills">
+          <span>Client-facing design</span><span>Brand portfolio communication</span><span>Business presentation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="workshops">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Beyond the classroom</span>
+      <h2>Workshops, field trips &amp; activities</h2>
+    </div>
+    <ul class="workshop-list reveal">
+      <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>National Symposium &amp; Hands-on Workshop</strong> on Ecosystem Restoration &amp; Sustainability</span></li>
+      <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>AI Tools and ChatGPT Workshop</strong> by Be10x — certified</span></li>
+      <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>Field visit</strong> to BRIC–NIPGR (National Institute of Plant Genome Research)</span></li>
+      <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>Sports &amp; recreation:</strong> Chess and Badminton throughout undergraduate studies</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#9DB498;">Get in touch</span>
+    <h2>Let's talk research, strategy, or where they meet.</h2>
+    <p>Open to internship and project opportunities in marketing, strategy, and research roles. Reach out — I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a href="tel:+919016349172">+91-9016349172</a>
+      <a href="mailto:harshashrivastava75@gmail.com">harshashrivastava75@gmail.com</a>
+      <a href="https://www.linkedin.com/in/harsha-shrivastava-18571741b" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+    <div class="fine-print">
+      <span>Harsha Shrivastava · MBA Candidate, DSM–DTU</span>
+      <span>Portfolio compiled 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
