@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! 👋
 
 This website showcases my academic journey, skills, projects, achievements, and interests. It serves as a digital introduction to who I am, what I have worked on, and the skills I am developing as an MBA student.
 
-🌐 Live Portfolio: View My Portfolio
+🌐 Live Portfolio: https://harshashrivastava.github.io/Harsha-Shrivastava-Portfolio/
 
 👨‍💼 About Me
 
