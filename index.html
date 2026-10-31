@@ -154,6 +154,17 @@
   .exp-date{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); text-align:right; white-space:nowrap;}
   .exp-list{margin:18px 0 0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
   .exp-list li{margin-bottom:8px;}
+  .exp-stack{display:flex; flex-direction:column; gap:20px;}
+  .exp-badge{
+    display:inline-flex; align-items:center; gap:6px; margin-top:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--gold-deep); border:1px solid var(--gold); border-radius:999px; padding:3px 10px;
+  }
+  .exp-badge::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold-deep);}
+  @media (max-width:640px){
+    .exp-card{grid-template-columns:1fr;}
+    .exp-date{text-align:left; white-space:normal;}
+  }
 
   /* ---------- specimen cards (projects) ---------- */
   .specimen-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
@@ -367,6 +378,29 @@
       <span class="eyebrow">Experience</span>
       <h2>Where I've applied it</h2>
     </div>
+    <div class="exp-stack">
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-role">Member, Content Team — M3 Mcube</div>
+        <div class="exp-org">The Marketing Society of Delhi School of Management, DTU</div>
+        <ul class="exp-list">
+          <li>Part of the content team of M3 Mcube, the marketing society of Delhi School of Management, DTU, contributing to the society's content and communication efforts.</li>
+        </ul>
+        <span class="exp-badge">Currently working</span>
+      </div>
+      <div class="exp-date">Oct 2026 – Present</div>
+    </div>
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-role">Member, Corporate Relations &amp; Placement Committee</div>
+        <div class="exp-org">Delhi School of Management, DTU</div>
+        <ul class="exp-list">
+          <li>Member of the Corporate Relations and Placement Committee, supporting industry engagement and placement-related activities at Delhi School of Management, DTU.</li>
+        </ul>
+        <span class="exp-badge">Currently working</span>
+      </div>
+      <div class="exp-date">Oct 2026 – Present</div>
+    </div>
     <div class="exp-card reveal">
       <div>
         <div class="exp-role">Marketing Intern</div>
@@ -377,6 +411,7 @@
         </ul>
       </div>
       <div class="exp-date">Aug 2024 – Jan 2026<br>(1 yr 6 mo)</div>
+    </div>
     </div>
   </div>
 </section>
@@ -486,6 +521,7 @@
       <h2>Workshops, field trips &amp; activities</h2>
     </div>
     <ul class="workshop-list reveal">
+      <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>Campus Creator Lab by Vivo</strong> — an interactive session on content creation, personal branding, and digital influence for future managers, in association with the Corporate Relations Committee</span></li>
       <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>IIC - DTU Workshop</strong> on Business Model Canvas &amp; Business Model Fit </span></li>
       <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>National Symposium &amp; Hands-on Workshop</strong> on Ecosystem Restoration &amp; Sustainability</span></li>
       <li class="workshop-item"><span class="workshop-mark">✦</span><span><strong>AI Tools and ChatGPT Workshop</strong> by Be10x — certified</span></li>
