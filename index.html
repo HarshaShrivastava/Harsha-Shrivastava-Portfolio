@@ -221,6 +221,17 @@
   .p-skills{display:flex; flex-wrap:wrap; gap:7px;}
   .p-skills span{font-size:11.5px; padding:4px 11px; background:var(--cream); border-radius:999px; color:var(--ink-soft); border:1px solid var(--line);}
 
+  .p-link{align-self:flex-start; margin-top:18px; display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px; background:var(--night); color:var(--gold-soft); font-size:13.5px; font-weight:600; text-decoration:none; border:1px solid var(--night); transition:.25s;}
+  .p-link:hover{background:var(--gold); color:var(--night); border-color:var(--gold); transform:translateY(-2px);}
+
+  /* resume call-to-action: highlighted with a gentle pulse */
+  .btn.resume-btn{position:relative; background:linear-gradient(120deg,var(--gold),#F0CB7A,var(--gold)); background-size:200% 100%; color:var(--night); font-weight:700; border:0; box-shadow:0 0 0 0 rgba(212,162,76,.6); animation:resumeGlow 2.4s ease-in-out infinite, resumeShine 3.2s linear infinite;}
+  .btn.resume-btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(212,162,76,.75);}
+  .btn.resume-btn::after{content:""; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg); animation:resumeSweep 3.2s ease-in-out infinite; pointer-events:none;}
+  @keyframes resumeGlow{0%,100%{box-shadow:0 0 0 0 rgba(212,162,76,.55)}50%{box-shadow:0 0 0 12px rgba(212,162,76,0)}}
+  @keyframes resumeShine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @keyframes resumeSweep{0%{left:-60%}55%,100%{left:130%}}
+
   /* workshops */
   .ws-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   .ws{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:24px; transition:.3s;}
@@ -313,6 +324,7 @@
       <div class="btns reveal d4">
         <a class="btn primary" href="#projects">View my work →</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
+        <a class="btn resume-btn" href="https://drive.google.com/file/d/18BPyUGg5jSc_eaDBxsfa2qbmEA_On2aT/view" target="_blank" rel="noopener">View resume ↗</a>
       </div>
       <div class="social reveal d4">
         <span class="email-show">✉ <span class="addr">harshashrivastava75@gmail.com</span> <button type="button" class="copy-btn" data-copy>Copy</button></span>
@@ -493,7 +505,7 @@
     </div>
     <div class="project-grid" id="pgrid">
 
-      <article class="project reveal" data-cat="biz">
+      <article data-drive="https://docs.google.com/presentation/d/1H5IbdkGVkFYV5wTmMt65mh5-8DvOwumr/edit" class="project reveal" data-cat="biz">
         <div class="p-banner g-gold"><span class="p-code">Specimen No. 01</span><span class="emoji">💼</span></div>
         <div class="p-body"><div class="p-cat">Internship Deliverable</div>
           <h3>Universal Marketing — Company Profile Deck</h3>
@@ -501,7 +513,7 @@
           <div class="p-skills"><span>Client-facing design</span><span>Brand portfolio communication</span><span>Business presentation</span></div></div>
       </article>
 
-      <article class="project reveal d1" data-cat="biz">
+      <article data-drive="https://drive.google.com/file/d/1OYHbIrBZIpBdDCN-IduUQrjcV5cQKh7h/view" class="project reveal d1" data-cat="biz">
         <div class="p-banner g-night"><span class="p-code">Specimen No. 02</span><span class="emoji">☕</span></div>
         <div class="p-body"><div class="p-cat">Business Strategy</div>
           <h3>ProChai — Go-to-Market Strategy</h3>
@@ -509,7 +521,7 @@
           <div class="p-skills"><span>Market segmentation</span><span>Positioning</span><span>Channel strategy</span><span>KPI design</span></div></div>
       </article>
 
-      <article class="project reveal" data-cat="sci">
+      <article data-drive="https://drive.google.com/file/d/1N0PE5Tgc_3uKKhGfhPBsgnVIHV7AJAYf/view" class="project reveal" data-cat="sci">
         <div class="p-banner g-green"><span class="p-code">Specimen No. 03</span><span class="emoji">♻️</span></div>
         <div class="p-body"><div class="p-cat">Dissertation · Sustainability</div>
           <h3>Circular Economy for Natural Resource Management</h3>
@@ -517,7 +529,7 @@
           <div class="p-skills"><span>Long-form research</span><span>Framework application</span><span>Case study analysis</span><span>Policy recommendations</span></div></div>
       </article>
 
-      <article class="project reveal d1" data-cat="sci">
+      <article data-drive="https://drive.google.com/file/d/1mNcDamD4FqgexQSaHVR2VoXBOusC_8hj/view" class="project reveal d1" data-cat="sci">
         <div class="p-banner g-teal"><span class="p-code">Specimen No. 04</span><span class="emoji">🧬</span></div>
         <div class="p-body"><div class="p-cat">Academic Research</div>
           <h3>Plant Microbiome &amp; Root–Bacteria Interactions</h3>
@@ -525,7 +537,7 @@
           <div class="p-skills"><span>Systematic review</span><span>PRISMA methodology</span><span>Evidence synthesis</span><span>Scientific writing</span></div></div>
       </article>
 
-      <article class="project reveal" data-cat="sci">
+      <article data-drive="https://docs.google.com/presentation/d/1ves1J7K-vK0IWcWG0cy9Opl6m6WuRqaK/edit" class="project reveal" data-cat="sci">
         <div class="p-banner g-green"><span class="p-code">Specimen No. 05</span><span class="emoji">🌾</span></div>
         <div class="p-body"><div class="p-cat">Applied Research</div>
           <h3>Biofertilizer &amp; Pesticide Usage in Indian Agriculture</h3>
@@ -533,7 +545,7 @@
           <div class="p-skills"><span>Data presentation</span><span>Comparative analysis</span><span>Chemistry-to-agronomy translation</span></div></div>
       </article>
 
-      <article class="project reveal d1" data-cat="sci">
+      <article data-drive="https://docs.google.com/presentation/d/1SNWx1BAg_y-70RqGfJsxBYy8RoWiD9zG/edit" class="project reveal d1" data-cat="sci">
         <div class="p-banner g-teal"><span class="p-code">Specimen No. 06</span><span class="emoji">🌱</span></div>
         <div class="p-body"><div class="p-cat">Lab Research</div>
           <h3>Germination in Moong — Plant Physiology Study</h3>
@@ -670,6 +682,17 @@
       if(show)p.classList.add('in');
     });
   });});
+
+
+  // Google Drive links: paste a link into data-drive="" on a project card to show a "View project" button
+  projs.forEach(function(card){
+    var url=(card.getAttribute('data-drive')||'').trim();
+    if(!/^https:\/\//.test(url)) return;
+    var a=document.createElement('a');
+    a.className='p-link'; a.href=url; a.target='_blank'; a.rel='noopener';
+    a.textContent='View project \u2197';
+    card.querySelector('.p-body').appendChild(a);
+  });
 
   // subtle 3D tilt on project cards (desktop, motion allowed)
   if(!reduce && window.matchMedia('(hover:hover)').matches){
